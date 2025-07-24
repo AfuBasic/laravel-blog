@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
@@ -62,8 +63,14 @@ class Post extends Model implements HasMedia
         return new Carbon($this->created_at)->format('d M, Y h:i a');
     }
 
-    public static function findBySlug($slug): Post
+    public function relatedPosts(): HasMany
     {
-        return self::where('slug', $slug)->first();
+        return $this->hasMany(Post::class, 'category_id', 'category_id')
+            ->where('id', '!=', $this->id);
+    }
+
+    public static function withRelated(string $slug)
+    {
+        return static::with('relatedPosts')->where('slug', $slug)->first();
     }
 }

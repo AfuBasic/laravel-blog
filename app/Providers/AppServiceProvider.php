@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 use App\Services\LLMService;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,5 +24,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::unguard();
+
+        DB::listen(function ($query) {
+            logger("[SQL] " . $query->sql);
+            logger("[Bindings] " . json_encode($query->bindings));
+            logger("[Time] " . $query->time . "ms");
+        });
     }
 }
