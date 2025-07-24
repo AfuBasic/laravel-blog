@@ -44,4 +44,19 @@ class PostController extends Controller
             'status' => true
         ]);
     }
+
+    public function getRelatedPosts($slug)
+    {
+        $post = Post::findBySlug($slug);
+        if (!$post) {
+            return response()->json(['status' => false, 'message' => 'Post not Found'], 404);
+        }
+
+        $posts = Post::where('category_id', $post->category_id)
+            ->where('id', '<>', $post->id)
+            ->limit(3)
+            ->get();
+
+        return response()->json(['data' => $posts, 'status' => true]);
+    }
 }

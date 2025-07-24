@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
@@ -59,5 +60,10 @@ class Post extends Model implements HasMedia
     public function getPostDateAttribute(): string
     {
         return new Carbon($this->created_at)->format('d M, Y h:i a');
+    }
+
+    public static function findBySlug($slug): Post
+    {
+        return self::where('slug', $slug)->first();
     }
 }
