@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Spatie\MediaLibrary\HasMedia;
@@ -10,8 +11,8 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Post extends Model implements HasMedia
 {
     use InteractsWithMedia;
-    protected $hidden = ['image', 'user', 'category', 'media'];
-    protected $appends = ['image_url', 'preview_image_url', 'author', 'category_name'];
+    protected $hidden = ['image', 'user', 'category', 'media', 'created_at', 'updated_at'];
+    protected $appends = ['image_url', 'preview_image_url', 'author', 'category_name', 'post_date'];
 
     protected static function booted()
     {
@@ -53,5 +54,10 @@ class Post extends Model implements HasMedia
     public function getCategoryNameAttribute(): string
     {
         return $this->category ? $this->category->name : 'Uncategorized';
+    }
+
+    public function getPostDateAttribute(): string
+    {
+        return new Carbon($this->created_at)->format('d M, Y h:i a');
     }
 }

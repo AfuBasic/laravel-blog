@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         $posts = Post::where('is_published', 1)
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(4);
 
         return response()->json(['data' => $posts, 'status' => true]);
     }
@@ -30,5 +30,18 @@ class PostController extends Controller
             ->paginate(10);
 
         return response()->json(['data' => $posts, 'status' => true]);
+    }
+
+    public function getPost($slug)
+    {
+        $post = Post::where('slug', $slug)->first();
+        if (!$post) {
+            return response()->json(['status' => false, 'message' => 'Post not found'], 404);
+        }
+
+        return response()->json([
+            'data' => $post,
+            'status' => true
+        ]);
     }
 }
