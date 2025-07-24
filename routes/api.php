@@ -19,4 +19,5 @@ Route::middleware([EnsureFrontendRequestsAreStateful::class, 'auth:sanctum'])->g
     Route::get('/categories', [PostCategoryController::class, 'index']);
     Route::get('/posts/{slug}', [PostController::class, 'getPostBySlug']);
     Route::get('/posts', [PostController::class, 'index']);
+    Route::get('/post/{slug}', [PostController::class, 'getPost']);
 });
