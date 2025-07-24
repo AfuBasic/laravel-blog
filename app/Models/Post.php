@@ -63,14 +63,12 @@ class Post extends Model implements HasMedia
         return new Carbon($this->created_at)->format('d M, Y h:i a');
     }
 
-    public function relatedPosts(): HasMany
+    public function getRelatedPosts()
     {
-        return $this->hasMany(Post::class, 'category_id', 'category_id')
-            ->where('id', '!=', $this->id);
-    }
-
-    public static function withRelated(string $slug)
-    {
-        return static::with('relatedPosts')->where('slug', $slug)->first();
+        return Post::where('category_id', $this->category_id)
+            ->where('id', '<>', $this->id)
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
     }
 }

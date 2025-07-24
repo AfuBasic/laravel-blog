@@ -34,10 +34,12 @@ class PostController extends Controller
 
     public function getPost($slug)
     {
-        $post = Post::withRelated($slug);
+        $post = Post::where('slug', $slug)->first();
         if (!$post) {
             return response()->json(['status' => false, 'message' => 'Post not found'], 404);
         }
+
+        $post->related_posts = $post->getRelatedPosts();
 
         return response()->json([
             'data' => $post,
