@@ -12,7 +12,7 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 Route::get('/token', function () {
-    // echo User::first()->createToken('read-only')->plainTextToken;
+    echo User::first()->createToken('read-only')->plainTextToken;
 });
 
 Route::middleware([EnsureFrontendRequestsAreStateful::class, 'auth:sanctum'])->group(function () {
