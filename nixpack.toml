@@ -1,0 +1,5 @@
+[phases.install]
+cmds = ["mkdir -p /var/log/nginx && mkdir -p /var/cache/nginx", "composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --ignore-platform-reqs", "npm i"]
+
+[phases.build]
+cmds = ["echo build started", "npm run build", "php artisan migrate --force", "php artisan optimize", "rm -rf node_modules", "echo build ended"]
