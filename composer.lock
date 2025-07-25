@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54047e836778eb00496eb2aa4a0d3a06",
+    "content-hash": "dbf73d201894854b7627a954f64dce2b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -3325,6 +3325,108 @@
                 }
             ],
             "time": "2025-04-12T22:26:52+00:00"
+        },
+        {
+            "name": "lucianotonet/groq-laravel",
+            "version": "0.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucianotonet/groq-laravel.git",
+                "reference": "133a871d60cf71a4ec3e36b47091256c330f14d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucianotonet/groq-laravel/zipball/133a871d60cf71a4ec3e36b47091256c330f14d2",
+                "reference": "133a871d60cf71a4ec3e36b47091256c330f14d2",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "*",
+                "illuminate/support": "*",
+                "lucianotonet/groq-php": "^0.0.10",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^7.0|^8.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Groq": "LucianoTonet\\GroqLaravel\\Facades\\Groq"
+                    },
+                    "providers": [
+                        "LucianoTonet\\GroqLaravel\\GroqServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LucianoTonet\\GroqLaravel\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luciano Tonet",
+                    "email": "tonetlds@gmail.com"
+                }
+            ],
+            "description": "Laravel package to access Groq REST API",
+            "support": {
+                "issues": "https://github.com/lucianotonet/groq-laravel/issues",
+                "source": "https://github.com/lucianotonet/groq-laravel/tree/v0.0.10"
+            },
+            "time": "2024-10-29T22:45:54+00:00"
+        },
+        {
+            "name": "lucianotonet/groq-php",
+            "version": "0.0.10",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lucianotonet/groq-php.git",
+                "reference": "c36c5a471d4caf0cec642887371203c6339d9738"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lucianotonet/groq-php/zipball/c36c5a471d4caf0cec642887371203c6339d9738",
+                "reference": "c36c5a471d4caf0cec642887371203c6339d9738",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.9",
+                "php": "^8.1.0",
+                "vlucas/phpdotenv": "^5.6"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^11.3"
+            },
+            "type": "package",
+            "autoload": {
+                "psr-4": {
+                    "LucianoTonet\\GroqPHP\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Luciano Tonet",
+                    "email": "tonetlds@gmail.com"
+                }
+            ],
+            "description": "PHP library to access Groq REST API",
+            "support": {
+                "issues": "https://github.com/lucianotonet/groq-php/issues",
+                "source": "https://github.com/lucianotonet/groq-php/tree/v0.0.10"
+            },
+            "time": "2024-10-29T21:45:23+00:00"
         },
         {
             "name": "maennchen/zipstream-php",
