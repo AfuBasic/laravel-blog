@@ -60,7 +60,7 @@ class Post extends Model implements HasMedia
 
     public function getPostDateAttribute(): string
     {
-        return new Carbon($this->created_at)->format('d M, Y h:i a');
+        return Carbon::parse($this->created_at)->format('d M, Y h:i a');
     }
 
     public function getRelatedPosts()
