@@ -11,6 +11,6 @@ class PostCategoryController extends Controller
     {
         // Logic to retrieve and return post categories
         $data = PostCategory::query()->orderBy('id', 'desc')->get();
-        return response()->json($data);
+        return response()->json(['data' => $data, 'status' => true]);
     }
 }
