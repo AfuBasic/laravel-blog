@@ -11,13 +11,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::get('/token', function () {
-    echo User::first()->createToken('read-only')->plainTextToken;
-});
-
-Route::middleware([EnsureFrontendRequestsAreStateful::class, 'auth:sanctum'])->group(function () {
-    Route::get('/categories', [PostCategoryController::class, 'index']);
-    Route::get('/posts/{slug}', [PostController::class, 'getPostBySlug']);
-    Route::get('/posts', [PostController::class, 'index']);
-    Route::get('/post/{slug}', [PostController::class, 'getPost']);
-});
+Route::get('/categories', [PostCategoryController::class, 'index']);
+Route::get('/posts/{slug}', [PostController::class, 'getPostBySlug']);
+Route::get('/posts', [PostController::class, 'index']);
+Route::get('/post/{slug}', [PostController::class, 'getPost']);

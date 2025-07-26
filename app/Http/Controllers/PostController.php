@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+
         $posts = Post::where('is_published', 1)
             ->orderBy('created_at', 'desc')
-            ->paginate(4);
+            ->paginate(6);
 
         return response()->json(['data' => $posts, 'status' => true]);
     }
@@ -27,7 +28,7 @@ class PostController extends Controller
         $posts = $post_category->posts()
             ->where('is_published', 1)
             ->orderBy('created_at', 'desc')
-            ->paginate(10);
+            ->paginate(6);
 
         return response()->json(['data' => $posts, 'status' => true]);
     }
