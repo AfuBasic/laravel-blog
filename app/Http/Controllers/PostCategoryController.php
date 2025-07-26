@@ -10,7 +10,7 @@ class PostCategoryController extends Controller
     public function index()
     {
         // Logic to retrieve and return post categories
-        $data = PostCategory::query()->orderBy('id', 'desc')->get();
+        $data = PostCategory::query()->orderBy('id', 'desc')->paginate(6);
         return response()->json(['data' => $data, 'status' => true]);
     }
 }
