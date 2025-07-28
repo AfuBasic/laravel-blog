@@ -38,13 +38,13 @@ class PostResource extends Resource
                     ->columnSpanFull()
                     ->suffixAction(
                         Forms\Components\Actions\Action::make('Generate')
-                            ->disabled(fn(callable $get) => blank($get('category_id')))
+                            ->disabled(fn(callable $get) => blank($get('post_category_id')))
                             ->label('Generate Content with AI')
                             ->icon('heroicon-o-light-bulb')
                             ->tooltip('Generate post content using AI based on the selected category.')
                             ->requiresConfirmation()
                             ->action(function (callable $set, callable $get) {
-                                $id = $get('category_id');
+                                $id = $get('post_category_id');
 
                                 if (empty($id)) {
                                     return;
