@@ -26,7 +26,7 @@ class PostCategory extends Model implements HasMedia
 
     public function posts(): HasMany
     {
-        return $this->hasMany(Post::class, 'category_id');
+        return $this->hasMany(Post::class, 'post_category_id');
     }
 
     public function registerMediaConversions(?Media $media = null): void
