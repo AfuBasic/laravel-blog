@@ -65,7 +65,7 @@ class Post extends Model implements HasMedia
 
     public function getRelatedPosts()
     {
-        return Post::where('category_id', $this->category_id)
+        return Post::where('post_category_id', $this->post_category_id)
             ->where('id', '<>', $this->id)
             ->inRandomOrder()
             ->limit(3)

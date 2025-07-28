@@ -116,7 +116,7 @@ class PostResource extends Resource
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
-                SelectFilter::make('category_id')
+                SelectFilter::make('post_category_id')
                     ->relationship('category', 'name')
                     ->label('Category'),
                 Filter::make('is_published')
