@@ -28,7 +28,7 @@ class PostResource extends Resource
         return $form
             ->schema([
 
-                Forms\Components\Select::make('category_id')
+                Forms\Components\Select::make('post_category_id')
                     ->relationship('category', 'name')
                     ->required()
                     ->native()
