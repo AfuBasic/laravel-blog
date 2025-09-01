@@ -10,10 +10,10 @@ The system integrates **AI (GROQ)** to assist with blog post generation, making 
 - **Frontend (Next.js)**: A fast, SEO-friendly blog reader interface consuming the Laravel API.  
 
 ## Tech Stack
-- **Backend**: Laravel 12, Filament, Livewire  
+- **Backend**: Laravel 12, Filament
 - **Frontend**: Next.js (React)  
-- **AI**: Ollama / OpenAI API integration  
-- **Database**: MySQL / PostgreSQL  
+- **AI**: GROQ API integration  
+- **Database**: MySQL  
 
 ## Related Repositories
 - 👉 [Frontend Repository](https://github.com/AfuBasic/nextjs-blog)
