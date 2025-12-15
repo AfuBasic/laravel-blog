@@ -67,6 +67,7 @@ class Post extends Model implements HasMedia
     {
         return Post::where('post_category_id', $this->post_category_id)
             ->where('id', '<>', $this->id)
+            ->where('is_published', true)
             ->inRandomOrder()
             ->limit(3)
             ->get();
